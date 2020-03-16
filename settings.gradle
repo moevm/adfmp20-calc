@@ -1,0 +1,2 @@
+rootProject.name='adfmp20-calc'
+include ':app'
