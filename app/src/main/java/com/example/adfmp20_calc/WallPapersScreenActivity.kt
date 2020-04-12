@@ -16,5 +16,11 @@ class WallPapersScreenActivity : AppCompatActivity() {
         goBackButton.setOnClickListener {
             finish()
         }
+
+        val wallpapersSettingsScreenIntent = Intent(this, WallpapersSettingsActivity::class.java)
+        val openWallpapersSettings = findViewById<TextView>(R.id.wallsSquare)
+        openWallpapersSettings.setOnClickListener {
+            startActivity(wallpapersSettingsScreenIntent)
+        }
     }
 }

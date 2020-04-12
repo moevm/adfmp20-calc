@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.*
 import org.w3c.dom.Text
 
-class FloorSettingsActivity : AppCompatActivity() {
+class WallsSettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,7 +59,7 @@ class FloorSettingsActivity : AppCompatActivity() {
 
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
            val layoutInflater = LayoutInflater.from(mContext)
-            val card = layoutInflater.inflate(R.layout.setting_card, viewGroup, false)
+            val card = layoutInflater.inflate(R.layout.wall_setting_card, viewGroup, false)
             val settingCardId = card.findViewById<TextView>(R.id.itemId)
             settingCardId.text = (position + 1).toString()
             val increaseButton = card.findViewById<Button>(R.id.increase)

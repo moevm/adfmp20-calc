@@ -13,7 +13,7 @@ import android.view.ViewGroup
 import android.widget.*
 import org.w3c.dom.Text
 
-class FloorSettingsActivity : AppCompatActivity() {
+class TilesSettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

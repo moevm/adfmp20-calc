@@ -16,5 +16,11 @@ class TilesScreenActivity : AppCompatActivity() {
         goBackButton.setOnClickListener {
             finish()
         }
+
+        val tilesSettingsScreenIntent = Intent(this, TilesSettingsActivity::class.java)
+        val openTileSettings = findViewById<TextView>(R.id.floorSquare)
+        openTileSettings.setOnClickListener {
+            startActivity(tilesSettingsScreenIntent)
+        }
     }
 }
