@@ -17,5 +17,10 @@ class FloorScreenActivity : AppCompatActivity() {
         goBackButton.setOnClickListener {
             finish()
         }
+        val floorSettingsScreenIntent = Intent(this, FloorSettingsActivity::class.java)
+        val openFloorSettings = findViewById<TextView>(R.id.floorSquare)
+        openFloorSettings.setOnClickListener {
+            startActivity(floorSettingsScreenIntent)
+        }
     }
 }
