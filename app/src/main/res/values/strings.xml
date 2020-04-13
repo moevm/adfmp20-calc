@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Калькулятор ремонта</string>
+    <string name="title">Приложение для расчета стоимости материалов для ремонта с помощью Яндекс.Маркет</string>
+    <string name="tiles">Укладка плитки</string>
+    <string name="important">Это важно</string>
+    <string name="wallpapers">Поклейка обоев</string>
+    <string name="floor">Заливка пола</string>
+    <string name="walls">Установка перегородок</string>
+    <string name="Preferences">Настройки</string>
+</resources>
