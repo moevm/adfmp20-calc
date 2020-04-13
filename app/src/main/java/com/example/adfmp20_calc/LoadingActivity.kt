@@ -11,9 +11,19 @@ import android.os.Handler
 class LoadingActivity : AppCompatActivity() {
 
    private fun nextPage(){
+       val attributes = intent.extras
         val materialsListScreenIntent = Intent(this, MaterialsListActivity::class.java)
+
             finish()
-            startActivity(materialsListScreenIntent)
+       if (attributes!=null){
+           materialsListScreenIntent.putExtra("type",intent.extras?.getString("type") )
+           materialsListScreenIntent.putExtra("total", intent.extras?.getDouble("total"))
+           materialsListScreenIntent.putExtra("p1", intent.extras?.getInt("p1"))
+           materialsListScreenIntent.putExtra("p2", intent.extras?.getInt("p2"))
+
+           startActivity(materialsListScreenIntent)
+       }
+
 
     }
 

@@ -22,8 +22,12 @@ class WallPapersScreenActivity : AppCompatActivity() {
             view.layoutParams = params
             snack.show()
         } else {
+
             val materialsListIntent = Intent(this, LoadingActivity::class.java)
+            materialsListIntent.putExtra("type", "Обои")
             materialsListIntent.putExtra("total", total)
+            materialsListIntent.putExtra("p1", p1)
+            materialsListIntent.putExtra("p2", p2)
             startActivity(materialsListIntent)
         }
     }
