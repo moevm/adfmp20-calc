@@ -20,6 +20,7 @@
         <activity android:name=".WallsSettingsActivity"></activity>
 
         <activity android:name=".MaterialsListActivity"></activity>
+        <activity android:name=".LoadingActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

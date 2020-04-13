@@ -34,7 +34,7 @@ class WallPapersScreenActivity : AppCompatActivity() {
         }
 
         val acceptButton = findViewById<TextView>(R.id.accept)
-        val materialsListIntent = Intent(this, MaterialsListActivity::class.java)
+        val materialsListIntent = Intent(this, LoadingActivity::class.java)
         acceptButton.setOnClickListener {
             startActivity(materialsListIntent)
         }
