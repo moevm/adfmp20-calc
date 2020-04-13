@@ -30,6 +30,7 @@ class WallsScreenActivity : AppCompatActivity() {
         val wallsSettingsScreenIntent = Intent(this, WallsSettingsActivity::class.java)
         val openWallsSettings = findViewById<TextView>(R.id.wallsSquare)
         openWallsSettings.setOnClickListener {
+            finish()
             startActivity(wallsSettingsScreenIntent)
         }
 

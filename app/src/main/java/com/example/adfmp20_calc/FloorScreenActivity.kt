@@ -29,6 +29,7 @@ class FloorScreenActivity : AppCompatActivity() {
         val floorSettingsScreenIntent = Intent(this, FloorSettingsActivity::class.java)
         val openFloorSettings = findViewById<TextView>(R.id.floorSquare)
         openFloorSettings.setOnClickListener {
+            finish()
             startActivity(floorSettingsScreenIntent)
         }
 

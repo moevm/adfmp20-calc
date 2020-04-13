@@ -29,6 +29,7 @@ class WallPapersScreenActivity : AppCompatActivity() {
         val wallpapersSettingsScreenIntent = Intent(this, WallpapersSettingsActivity::class.java)
         val openWallpapersSettings = findViewById<TextView>(R.id.wallsSquare)
         openWallpapersSettings.setOnClickListener {
+            finish()
             startActivity(wallpapersSettingsScreenIntent)
         }
 

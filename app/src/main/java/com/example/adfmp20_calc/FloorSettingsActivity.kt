@@ -34,8 +34,6 @@ class FloorSettingsActivity : AppCompatActivity() {
         val adapter = ProjectAdapter(this)
 
 
-
-
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
         val addNewItemButton = findViewById<Button>(R.id.addNewItem)
@@ -48,6 +46,7 @@ class FloorSettingsActivity : AppCompatActivity() {
         val screenIntent = Intent(this, FloorScreenActivity::class.java)
         acceptButton.setOnClickListener {
             val total = calculate(adapter.floors)
+            finish()
             screenIntent.putExtra("total", total)
             startActivity(screenIntent)
         }

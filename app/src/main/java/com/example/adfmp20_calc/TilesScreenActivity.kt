@@ -28,6 +28,7 @@ class TilesScreenActivity : AppCompatActivity() {
         val tilesSettingsScreenIntent = Intent(this, TilesSettingsActivity::class.java)
         val openTileSettings = findViewById<TextView>(R.id.floorSquare)
         openTileSettings.setOnClickListener {
+            finish()
             startActivity(tilesSettingsScreenIntent)
         }
 

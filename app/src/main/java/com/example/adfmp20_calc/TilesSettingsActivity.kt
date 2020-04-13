@@ -39,6 +39,7 @@ class TilesSettingsActivity : AppCompatActivity() {
         acceptButton.setOnClickListener {
             val total = calculate(adapter.floors)
             screenIntent.putExtra("total", total)
+            finish()
             startActivity(screenIntent)
         }
 

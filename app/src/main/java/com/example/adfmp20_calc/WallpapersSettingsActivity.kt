@@ -48,6 +48,7 @@ class WallpapersSettingsActivity : AppCompatActivity() {
         val screenIntent = Intent(this, WallPapersScreenActivity::class.java)
         acceptButton.setOnClickListener {
             val total = calculate(adapter.walls)
+            finish()
             screenIntent.putExtra("total", total)
             startActivity(screenIntent)
         }

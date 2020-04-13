@@ -44,6 +44,7 @@ class WallsSettingsActivity : AppCompatActivity() {
         acceptButton.setOnClickListener {
             val total = calculate(adapter.walls)
             screenIntent.putExtra("total", total)
+            finish()
             startActivity(screenIntent)
         }
     }
