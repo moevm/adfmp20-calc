@@ -15,6 +15,12 @@ import org.w3c.dom.Text
 
 class WallpapersSettingsActivity : AppCompatActivity() {
 
+    private fun calculate(walls: ArrayList<Wall>): Double {
+        var total = 0.0
+        for (wall in walls)
+            total+=wall.height*wall.width*wall.amount
+        return total
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
@@ -25,10 +31,6 @@ class WallpapersSettingsActivity : AppCompatActivity() {
             finish()
         }
 
-        val acceptButton = findViewById<TextView>(R.id.accept)
-        acceptButton.setOnClickListener {
-            finish()
-        }
 
         val adapter = ProjectAdapter(this)
 
@@ -40,6 +42,14 @@ class WallpapersSettingsActivity : AppCompatActivity() {
         addNewItemButton.setOnClickListener {
             adapter.createFloor()
             adapter.notifyDataSetChanged()
+        }
+
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        val screenIntent = Intent(this, WallPapersScreenActivity::class.java)
+        acceptButton.setOnClickListener {
+            val total = calculate(adapter.walls)
+            screenIntent.putExtra("total", total)
+            startActivity(screenIntent)
         }
     }
 

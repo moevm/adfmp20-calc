@@ -15,6 +15,14 @@ import org.w3c.dom.Text
 
 class TilesSettingsActivity : AppCompatActivity() {
 
+    private fun calculate(floors: ArrayList<Floor>): Double {
+        var total = 0.0
+        for (floor in floors)
+            total+=floor.height*floor.width*floor.amount
+
+        return total
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
@@ -27,8 +35,11 @@ class TilesSettingsActivity : AppCompatActivity() {
         val adapter = ProjectAdapter(this)
 
         val acceptButton = findViewById<TextView>(R.id.accept)
+        val screenIntent = Intent(this, TilesScreenActivity::class.java)
         acceptButton.setOnClickListener {
-            finish()
+            val total = calculate(adapter.floors)
+            screenIntent.putExtra("total", total)
+            startActivity(screenIntent)
         }
 
         val listView = findViewById<ListView>(R.id.listView)
@@ -38,6 +49,8 @@ class TilesSettingsActivity : AppCompatActivity() {
             adapter.createFloor()
             adapter.notifyDataSetChanged()
         }
+
+
     }
 
     private  class ProjectAdapter(context: Context) : BaseAdapter() {

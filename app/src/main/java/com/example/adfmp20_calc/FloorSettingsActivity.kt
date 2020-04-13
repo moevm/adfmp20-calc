@@ -2,19 +2,26 @@ package com.example.adfmp20_calc
 
 import android.content.Context
 import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import org.w3c.dom.Text
+
 
 class FloorSettingsActivity : AppCompatActivity() {
 
+    private fun calculate(floors: ArrayList<Floor>): Double {
+        var total = 0.0
+        for (floor in floors)
+            total+=floor.height*floor.width*floor.amount
+
+        return total
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
@@ -26,10 +33,8 @@ class FloorSettingsActivity : AppCompatActivity() {
         }
         val adapter = ProjectAdapter(this)
 
-        val acceptButton = findViewById<TextView>(R.id.accept)
-        acceptButton.setOnClickListener {
-            finish()
-        }
+
+
 
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
@@ -37,6 +42,14 @@ class FloorSettingsActivity : AppCompatActivity() {
         addNewItemButton.setOnClickListener {
             adapter.createFloor()
             adapter.notifyDataSetChanged()
+        }
+
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        val screenIntent = Intent(this, FloorScreenActivity::class.java)
+        acceptButton.setOnClickListener {
+            val total = calculate(adapter.floors)
+            screenIntent.putExtra("total", total)
+            startActivity(screenIntent)
         }
     }
 

@@ -11,6 +11,14 @@ class TilesScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
+        val arguments = intent.extras
+
+        val totalText =  findViewById<TextView>(R.id.total)
+        var total  = arguments?.get("total")
+        if(total!=null) totalText.text = total.toString() else{
+            total = 0.0
+            totalText.text = total.toString()
+        }
 
         val goBackButton = findViewById<TextView>(R.id.goBackButton)
         goBackButton.setOnClickListener {

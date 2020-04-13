@@ -1,17 +1,26 @@
 package com.example.adfmp20_calc
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+
+
 
 class FloorScreenActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val arguments = intent.extras
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.floor_activity)
 
+        val totalText =  findViewById<TextView>(R.id.total)
+        var total  = arguments?.get("total")
+        if(total!=null) totalText.text = total.toString() else{
+            total = 0.0
+            totalText.text = total.toString()
+        }
 
         val goBackButton = findViewById<TextView>(R.id.goBackButton)
         goBackButton.setOnClickListener {
@@ -26,7 +35,10 @@ class FloorScreenActivity : AppCompatActivity() {
         val acceptButton = findViewById<TextView>(R.id.accept)
         val materialsListIntent = Intent(this, MaterialsListActivity::class.java)
         acceptButton.setOnClickListener {
+            materialsListIntent.putExtra("total", total as Double)
             startActivity(materialsListIntent)
         }
+
+
     }
 }

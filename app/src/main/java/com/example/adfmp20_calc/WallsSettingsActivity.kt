@@ -12,7 +12,12 @@ import android.view.ViewGroup
 import android.widget.*
 
 class WallsSettingsActivity : AppCompatActivity() {
-
+    private fun calculate(walls: ArrayList<Wall>): Double {
+        var total = 0.0
+        for (wall in walls)
+            total+=wall.height*wall.width*wall.amount
+        return total
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.settings_activity)
@@ -24,10 +29,7 @@ class WallsSettingsActivity : AppCompatActivity() {
         }
         val adapter = ProjectAdapter(this)
 
-        val acceptButton = findViewById<TextView>(R.id.accept)
-        acceptButton.setOnClickListener {
-            finish()
-        }
+
 
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
@@ -36,6 +38,14 @@ class WallsSettingsActivity : AppCompatActivity() {
             adapter.createFloor()
             adapter.notifyDataSetChanged()
         }
+
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        val screenIntent = Intent(this, WallsScreenActivity::class.java)
+        acceptButton.setOnClickListener {
+            val total = calculate(adapter.walls)
+            screenIntent.putExtra("total", total)
+            startActivity(screenIntent)
+        }
     }
 
     private  class ProjectAdapter(context: Context) : BaseAdapter() {
@@ -43,15 +53,15 @@ class WallsSettingsActivity : AppCompatActivity() {
         private val mContext : Context = context
 
 
-        var walls = arrayListOf<Walls>(
-            Walls(0.0, 0.0)
+        var walls = arrayListOf<Wall>(
+            Wall(0.0, 0.0)
         )
 
 
 
 
          fun createFloor(){
-            walls.add( Walls(0.0, 0.0))
+            walls.add( Wall(0.0, 0.0))
         }
 
         private fun removeFloor(index:Int){
@@ -143,7 +153,7 @@ class WallsSettingsActivity : AppCompatActivity() {
 
     }
 
-     class Walls(width:Double, height: Double) {
+     class Wall(width:Double, height: Double) {
         var width = 0.0
         var height = 0.0
          var amount = 1
