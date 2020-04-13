@@ -26,7 +26,12 @@ class MaterialsListActivity : AppCompatActivity() {
         }
         val adapter = ProjectAdapter(this)
 
-
+        val goBack = findViewById<TextView>(R.id.selectAnotherRemont)
+        val homeIntent = Intent(this, MainActivity::class.java)
+        goBack.setOnClickListener {
+            finish()
+            startActivity(homeIntent)
+        }
 
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
