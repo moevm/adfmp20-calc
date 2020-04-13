@@ -157,4 +157,44 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:layout_constraintVertical_bias="0.735" />
 
+    <EditText
+        android:id="@+id/priceFrom"
+        android:layout_width="74dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginLeft="128dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="От"
+        android:inputType="numberDecimal"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goBackButton" />
+
+    <EditText
+        android:id="@+id/priceTo"
+        android:layout_width="74dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="До
+"
+        android:inputType="numberDecimal"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@+id/priceFrom"
+        app:layout_constraintTop_toBottomOf="@+id/accept" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Цена"
+        app:layout_constraintEnd_toStartOf="@+id/priceFrom"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/goBackButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
