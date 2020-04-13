@@ -26,7 +26,10 @@ class TilesSettingsActivity : AppCompatActivity() {
         }
         val adapter = ProjectAdapter(this)
 
-
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        acceptButton.setOnClickListener {
+            finish()
+        }
 
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
@@ -44,9 +47,6 @@ class TilesSettingsActivity : AppCompatActivity() {
         var floors = arrayListOf<Floor>(
             Floor(0.0, 0.0)
         )
-
-         var width = 0
-         var height = 0
 
 
          fun createFloor(){

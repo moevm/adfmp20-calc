@@ -22,5 +22,13 @@ class TilesScreenActivity : AppCompatActivity() {
         openTileSettings.setOnClickListener {
             startActivity(tilesSettingsScreenIntent)
         }
+
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        val materialsListIntent = Intent(this, MaterialsListActivity::class.java)
+        acceptButton.setOnClickListener {
+            startActivity(materialsListIntent)
+        }
+
+
     }
 }

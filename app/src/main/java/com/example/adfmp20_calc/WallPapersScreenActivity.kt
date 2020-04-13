@@ -22,5 +22,11 @@ class WallPapersScreenActivity : AppCompatActivity() {
         openWallpapersSettings.setOnClickListener {
             startActivity(wallpapersSettingsScreenIntent)
         }
+
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        val materialsListIntent = Intent(this, MaterialsListActivity::class.java)
+        acceptButton.setOnClickListener {
+            startActivity(materialsListIntent)
+        }
     }
 }

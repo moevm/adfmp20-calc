@@ -18,6 +18,8 @@
         <activity android:name=".TilesSettingsActivity"></activity>
         <activity android:name=".WallpapersSettingsActivity"></activity>
         <activity android:name=".WallsSettingsActivity"></activity>
+
+        <activity android:name=".MaterialsListActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

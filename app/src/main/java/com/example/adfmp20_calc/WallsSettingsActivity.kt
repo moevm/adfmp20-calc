@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import org.w3c.dom.Text
 
 class WallsSettingsActivity : AppCompatActivity() {
 
@@ -26,7 +24,10 @@ class WallsSettingsActivity : AppCompatActivity() {
         }
         val adapter = ProjectAdapter(this)
 
-
+        val acceptButton = findViewById<TextView>(R.id.accept)
+        acceptButton.setOnClickListener {
+            finish()
+        }
 
         val listView = findViewById<ListView>(R.id.listView)
         listView.adapter = adapter
@@ -41,20 +42,20 @@ class WallsSettingsActivity : AppCompatActivity() {
 
         private val mContext : Context = context
 
-        var floors = arrayListOf<Floor>(
-            Floor(0.0, 0.0)
+
+        var walls = arrayListOf<Walls>(
+            Walls(0.0, 0.0)
         )
 
-         var width = 0
-         var height = 0
+
 
 
          fun createFloor(){
-            floors.add( Floor(0.0, 0.0))
+            walls.add( Walls(0.0, 0.0))
         }
 
         private fun removeFloor(index:Int){
-            floors.removeAt(index)
+            walls.removeAt(index)
         }
 
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
@@ -70,17 +71,17 @@ class WallsSettingsActivity : AppCompatActivity() {
             val widthTextEdit = card.findViewById<EditText>(R.id.widthTextEdit)
             val heightTextEdit = card.findViewById<EditText>(R.id.heightTextEdit)
 
-            amountTextView.text = floors[position].amount.toString()
+            amountTextView.text = walls[position].amount.toString()
 
             increaseButton.setOnClickListener {
-                floors[position].amount++
-                amountTextView.text = floors[position].amount.toString()
+                walls[position].amount++
+                amountTextView.text = walls[position].amount.toString()
 
             }
 
             decreaseButton.setOnClickListener {
-                floors[position].amount--
-                amountTextView.text = floors[position].amount.toString()
+                walls[position].amount--
+                amountTextView.text = walls[position].amount.toString()
             }
 
             removeItem.setOnClickListener{
@@ -91,7 +92,7 @@ class WallsSettingsActivity : AppCompatActivity() {
 
             widthTextEdit.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(p0: Editable?) {
-                    floors[position].width = p0.toString().toDouble()
+                    walls[position].width = p0.toString().toDouble()
 
                 }
 
@@ -105,7 +106,7 @@ class WallsSettingsActivity : AppCompatActivity() {
 
             heightTextEdit.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(p0: Editable?) {
-                    floors[position].height = p0.toString().toDouble()
+                    walls[position].height = p0.toString().toDouble()
 
                 }
 
@@ -117,11 +118,11 @@ class WallsSettingsActivity : AppCompatActivity() {
                 }
             })
 
-            if(floors[position].width != 0.0){
-                widthTextEdit.setText(floors[position].width.toString())
+            if(walls[position].width != 0.0){
+                widthTextEdit.setText(walls[position].width.toString())
             }
-            if(floors[position].height != 0.0){
-                heightTextEdit.setText(floors[position].height.toString())
+            if(walls[position].height != 0.0){
+                heightTextEdit.setText(walls[position].height.toString())
             }
 
 
@@ -137,12 +138,12 @@ class WallsSettingsActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-           return floors.size
+           return walls.size
         }
 
     }
 
-     class Floor(width:Double, height: Double) {
+     class Walls(width:Double, height: Double) {
         var width = 0.0
         var height = 0.0
          var amount = 1
