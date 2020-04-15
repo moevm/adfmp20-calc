@@ -38,7 +38,7 @@
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="220₽" />
+        android:text="220₽" />
 
     <ImageView
         android:id="@+id/imageView3"

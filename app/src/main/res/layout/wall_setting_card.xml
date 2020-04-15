@@ -48,7 +48,7 @@
         android:layout_marginLeft="36dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Ширина"
+        android:hint="@string/width"
         android:inputType="numberSigned"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -61,7 +61,7 @@
         android:layout_marginLeft="44dp"
         android:layout_marginTop="24dp"
         android:ems="10"
-        android:hint="Высота"
+        android:hint="@string/height"
         android:inputType="numberSigned"
         app:layout_constraintStart_toEndOf="@+id/widthTextEdit"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
@@ -72,7 +72,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        android:text="-"
+        android:text="@string/minus"
         app:layout_constraintStart_toEndOf="@+id/heightTextEdit"
         app:layout_constraintTop_toTopOf="@+id/heightTextEdit" />
 
@@ -82,7 +82,7 @@
         android:layout_height="37dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
-        android:text="+"
+        android:text="@string/plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/heightTextEdit" />
 
@@ -107,7 +107,7 @@
         android:layout_marginTop="68dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
-        android:text="X"
+        android:text="@string/close"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
