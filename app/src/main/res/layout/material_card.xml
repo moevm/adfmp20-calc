@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -36,7 +36,7 @@
         android:textColor="#151522"
         android:textSize="11sp"
         android:textStyle="normal"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintStart_toEndOf="@+id/itemName"
         app:layout_constraintTop_toTopOf="parent"
         android:text="220₽" />
 
@@ -64,7 +64,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="Вес:" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView16"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="0кг" />
 
     <TextView
@@ -97,7 +97,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="Количество:" />
 
     <TextView
@@ -113,7 +113,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView17"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="белый" />
 
     <TextView
@@ -130,7 +130,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="Излишки:" />
 
     <TextView
@@ -146,7 +146,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView18"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="1х" />
 
 
@@ -163,7 +163,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/textView20"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="0.1кг" />
 
     <TextView
@@ -180,7 +180,7 @@
         android:textSize="11sp"
         android:textStyle="normal"
         app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/itemName"
         android:text="Цвет:" />
 
     <View
