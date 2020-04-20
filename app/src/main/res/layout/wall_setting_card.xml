@@ -49,7 +49,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/width"
-        android:inputType="numberSigned"
+        android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/height"
-        android:inputType="numberSigned"
+        android:inputType="number"
         app:layout_constraintStart_toEndOf="@+id/widthTextEdit"
         app:layout_constraintTop_toBottomOf="@+id/textView15" />
 

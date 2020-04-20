@@ -115,7 +115,7 @@ class MaterialsListActivity : AppCompatActivity() {
                 val itemSurplus = card.findViewById<TextView>(R.id.itemSurplus)
 
                 itemName.text = items[position].name
-                itemPrice.text = items[position].price.toString()
+                itemPrice.text = "${items[position].price}₽"
                 itemAmount.text = items[position].amount.toString()
                 itemSurplus.text = if( items[position].amount*items[position].square - total > 0)  (items[position].amount*items[position].square - total).toString() else "0"
             }

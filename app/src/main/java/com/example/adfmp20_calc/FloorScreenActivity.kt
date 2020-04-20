@@ -2,6 +2,7 @@ package com.example.adfmp20_calc
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputFilter
 import android.view.Gravity
 import android.view.View
 import android.widget.EditText
@@ -65,6 +66,7 @@ class FloorScreenActivity : AppCompatActivity() {
         acceptButton.setOnClickListener {
             val p1 = findViewById<EditText>(R.id.priceFrom).text.toString()
             val p2 = findViewById<EditText>(R.id.priceTo).text.toString()
+
         if(p1 == "" || p2 == "")
         checkPrice(it, 20, 10, total as Double)
             else
