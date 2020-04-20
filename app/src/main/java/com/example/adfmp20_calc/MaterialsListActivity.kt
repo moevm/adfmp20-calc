@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,23 +16,26 @@ class MaterialsListActivity : AppCompatActivity() {
 
     class Item(val name: String, val price: Int, val square: Int, val amount: Int)
 
-    val materialList = arrayListOf<Material>(Material("TEST MATERIAL", 12, 10))
+    private  val materialList = arrayListOf(Material("TEST MATERIAL", 12, 10))
 
-    fun searhForMaterial(square: Int): Item {
+    private fun searchForMaterial(square: Int, maxPrice: Int): Item {
         val selectedMaterial: Material
-        var totalSquare: Int = 0
-        var amount: Int = 0
+        var totalSquare = 0
+        var totalPrice =0
+        var amount = 0
 
-        var item: Item
+        val item: Item
 
 
         for (material in materialList){
-            if (material.square <=  square ){
+            if (material.square <=  square && material.price<maxPrice){
                 selectedMaterial = material
                 while (totalSquare < square){
                     amount++
                     totalSquare += material.square
+                    totalPrice += material.price
                 }
+                if(totalPrice > maxPrice ) return Item("",0,0,0)
                 item = Item(selectedMaterial.name, selectedMaterial.price, selectedMaterial.square, amount)
                 return item
             }
@@ -42,7 +44,7 @@ class MaterialsListActivity : AppCompatActivity() {
        return Item("",0,0,0)
     }
 
-    var selectedItems: ArrayList<Item> = arrayListOf<Item>()
+    var selectedItems: ArrayList<Item> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -59,15 +61,17 @@ class MaterialsListActivity : AppCompatActivity() {
 
 
         val attributes  = intent.extras
-        val type: String? = attributes?.getString("type")
-        val total : Double? = attributes?.getDouble("total")
-        val p1: Int? = attributes?.getInt("p1")
-        val p2: Int? = attributes?.getInt("p2")
 
 
 
-        if(total!=null) {
-            val material = searhForMaterial(total.toInt())
+
+
+        if(attributes!=null){
+            val type: String? = attributes.getString("type")
+            val total : Double = attributes.getDouble("total")
+            val p1: Int = attributes.getInt("p1")
+            val p2: Int = attributes.getInt("p2")
+            val material = searchForMaterial(total.toInt(), p2)
             if (material.amount != 0){
                 selectedItems.add(material)
                 val adapter = ProjectAdapter(this, selectedItems, total.toInt())
@@ -86,6 +90,7 @@ class MaterialsListActivity : AppCompatActivity() {
 
 
 
+
         val goBack = findViewById<TextView>(R.id.selectAnotherRemont)
         val homeIntent = Intent(this, MainActivity::class.java)
         goBack.setOnClickListener {
@@ -97,11 +102,12 @@ class MaterialsListActivity : AppCompatActivity() {
 
     }
 
-    private  class ProjectAdapter(context: Context, selectedItems: ArrayList<Item>, total :Int) : BaseAdapter() {
+    private  class ProjectAdapter(context: Context, selectedItems: ArrayList<Item>,
+                                  private val total: Int
+    ) : BaseAdapter() {
 
         private val mContext : Context = context
         private val items :ArrayList<Item> = selectedItems
-        private val total = total
 
         override fun getView(position: Int, convertView: View?, viewGroup: ViewGroup?): View {
            val layoutInflater = LayoutInflater.from(mContext)
