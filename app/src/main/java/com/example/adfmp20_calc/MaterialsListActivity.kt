@@ -16,7 +16,7 @@ class MaterialsListActivity : AppCompatActivity() {
 
     class Item(val name: String, val price: Int, val square: Int, val amount: Int)
 
-    private  val materialList = arrayListOf(Material("TEST MATERIAL", 12, 10))
+    private  val materialList = arrayListOf(Material("TEST MATERIAL", 10, 10))
 
     private fun searchForMaterial(square: Int, maxPrice: Int): Item {
         val selectedMaterial: Material
@@ -83,6 +83,9 @@ class MaterialsListActivity : AppCompatActivity() {
                 for (item in selectedItems)
                     price += item.amount*item.price
                 totalPrice.text = "$price₽"
+            }
+            else{
+                findViewById<TextView>(R.id.materialListTitle).text = "Материалы не найдены"
             }
 
         }
